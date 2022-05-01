@@ -3,12 +3,7 @@
     <div v-if="!editing" class="row d-flex">
       <div class="col-3">
         <div class="card">
-          <div class="container">
-            <img :src="user.picture" alt="" class="img-fluid rounded-pill" />
-            <h2>{{ user.name }}</h2>
-          </div>
-          <h5>Posts: {{ userPosts.length }}</h5>
-          <p>{{ user.bio }}</p>
+          <div class="container"></div>
         </div>
         <div v-if="user.id == account.id">
           <i class="selectable ms-2 mdi mdi-pencil" @click="editing = true"></i>
