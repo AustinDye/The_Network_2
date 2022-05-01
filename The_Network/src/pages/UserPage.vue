@@ -1,20 +1,20 @@
 <template>
-  <div class="container text-light">
-    <div v-if="!editing" class="row">
-      <div class="col-6 d-flex p-3">
-        <div>
-          <img :src="user.picture" alt="" class="img-fluid" />
-          <h2>{{ user.name }}</h2>
+  <div class="container">
+    <div v-if="!editing" class="row d-flex">
+      <div class="col-3">
+        <div class="card">
+          <div class="container">
+            <img :src="user.picture" alt="" class="img-fluid rounded-pill" />
+            <h2>{{ user.name }}</h2>
+          </div>
           <h5>Posts: {{ userPosts.length }}</h5>
+          <p>{{ user.bio }}</p>
         </div>
         <div v-if="user.id == account.id">
-          <i
-            class="text-light selectable ms-2 mdi mdi-pencil"
-            @click="editing = true"
-          ></i>
+          <i class="selectable ms-2 mdi mdi-pencil" @click="editing = true"></i>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-9">
         <div class="container" v-if="userPosts">
           <Post v-for="p in userPosts" :key="p.id" :post="p" />
         </div>
@@ -74,12 +74,12 @@ export default {
     });
     return {
       editing,
-      user: computed(() => AppState.activeUser),
+      user: computed(() => AppState.user),
       account: computed(() => AppState.account),
       userPosts: computed(() => AppState.userPosts),
       async editUser() {
         try {
-          await accountService.editAccount(AppState.activeUser);
+          await accountService.editAccount(AppState.account);
           Pop.toast("Updated User", "success");
           editing.value = false;
         } catch (error) {
@@ -92,4 +92,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+img {
+  border: black 3px solid;
+  box-shadow: 6px 3px 1px rgb(0, 0, 0);
+}
+</style>

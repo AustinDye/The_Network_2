@@ -19,6 +19,13 @@ class PostService {
     logger.log('success')
     AppState.posts = AppState.posts.filter(p => p.id !== id)
   }
+
+  async likePost(post) {
+    const res = await api.get('api/posts/' + post.id)
+    const likedPost = res.data.likes.push(AppState.account) 
+    await api.put('api/posts/' + post.id , likedPost)
+  }
+  
 }
 
 export const postService = new PostService()

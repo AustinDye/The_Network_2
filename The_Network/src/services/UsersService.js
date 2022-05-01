@@ -3,10 +3,9 @@ import { logger } from "../utils/Logger.js"
 import { api } from "./AxiosService.js"
 
 class UsersService{ 
- async getUserById(id) {
-  const res = await api.get('api/profiles/' + id)
-   logger.log(res.data)
-   AppState.activeUser = res.data
+  async getUserById(id) {
+    const res = await api.get('api/profiles/' + id)
+    logger.log(res.data)  
   } 
 
   async getUserPosts(id) {

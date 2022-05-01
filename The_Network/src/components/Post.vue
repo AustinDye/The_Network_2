@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-center">
-    <div class="col-6">
+    <div class="col-12">
       <div class="card d-flex">
         <div class="row">
           <div class="col-12">
@@ -16,6 +16,7 @@
             <div class="container d-block">
               <h3 class="m-5">{{ post.body }}</h3>
               <img :src="post.imgUrl" v-if="post.imgUrl" class="img-fluid" />
+              <i class="mdi mdi-circle btn" @click="likePost()"></i>
             </div>
             <div class="trash">
               <i
@@ -62,6 +63,13 @@ export default {
             name: "User",
             params: { id: props.post.creator.id },
           });
+        } catch (error) {
+          Pop.toast(error.message, "error");
+        }
+      },
+      async likePost() {
+        try {
+          await postService.likePost(props.post);
         } catch (error) {
           Pop.toast(error.message, "error");
         }
