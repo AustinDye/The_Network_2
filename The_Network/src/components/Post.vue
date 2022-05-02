@@ -1,40 +1,42 @@
 <template>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center mb-5">
     <div class="col-12">
       <div class="card d-flex">
         <div class="row">
-          <div class="col-12">
-            <span class="d-flex justify-content-between p-2" id="user-info">
-              <div class="d-flex">
-                <img
-                  :src="post.creator.picture"
-                  v-if="post.creator.picture"
-                  class="rounded"
-                  @click="getProfileById()"
-                />
-                <p class="">{{ post.creator.name }}</p>
-              </div>
-              <p>{{ post.createdAt.substring(0, 10) }}</p>
-            </span>
-            <h5 class="p-3">{{ post.body }}</h5>
-            <div class="container text-center bg-dark">
+          <div class="col-12 ps-4 pe-4">
+            <div
+              class="container text-center bg-dark content-image text-success"
+            >
+              <span class="d-flex justify-content-between pt-2" id="user-info">
+                <div class="d-flex">
+                  <img
+                    :src="post.creator.picture"
+                    v-if="post.creator.picture"
+                    class="rounded"
+                    @click="getProfileById()"
+                  />
+                  <p class="ps-4">{{ post.creator.name }}</p>
+                </div>
+                <p>{{ post.createdAt.substring(0, 10) }}</p>
+              </span>
+              <h5 class="p-3">{{ post.body }}</h5>
               <img :src="post.imgUrl" v-if="post.imgUrl" class="img-fluid" />
-            </div>
-            <div class="flex-row-reverse">
               <h4>Fame: {{ post.likes.length }}</h4>
+            </div>
+            <div class="d-flex justify-content-between">
               <div class="btn">
                 <i
-                  class="mdi fs-5 btn"
+                  class="mdi mdi-24px btn"
                   :class="isLiked ? 'mdi-star' : 'mdi-star-outline'"
                   @click="likePost(post.id)"
                 ></i>
               </div>
-            </div>
-            <div class="trash" v-if="post.creator.id == account.id">
-              <i
-                class="mdi mdi-delete-outline mdi-24px btn"
-                @click="deletePost()"
-              ></i>
+              <div class="trash" v-if="post.creator.id == account.id">
+                <i
+                  class="mdi mdi-delete-outline mdi-24px btn"
+                  @click="deletePost()"
+                ></i>
+              </div>
             </div>
           </div>
         </div>
@@ -102,11 +104,14 @@ export default {
 
 <style lang="scss" scoped>
 .mdi {
-  margin: 1%;
-  border: rgb(0, 0, 0) 1px solid;
-  box-shadow: 3px 3px 1px rgb(0, 0, 0);
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.625);
+  border: rgba(0, 0, 0, 0.625) 0.4em double;
+  border-radius: 30px;
 }
-
+img {
+  margin-top: 4%;
+  margin-bottom: 4%;
+}
 .mdi-star {
   background-color: rgb(184, 179, 134);
 }
@@ -115,22 +120,27 @@ export default {
 }
 
 .card {
-  box-shadow: 2px 2px 4px #394446a4;
-  background-color: #fffff4;
-  border: none;
-  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
-    rgba(240, 46, 170, 0.2) 15px 15px;
+  background-color: #ac9c9c;
+  border: rgba(0, 0, 0, 0.625) 0.4em double;
+  box-shadow: #ac9c9c 5px 5px, #a09494 10px 10px, #9b8b8b 15px 15px,
+    #8b7e7e 20px 20px, #756a6a 25px 25px, #655e5e 30px 30px, #383333 32px 32px;
+  border-radius: 35px;
 }
 
 .rounded {
-  box-shadow: 3px 3px 1px rgb(0, 0, 0);
-  border: rgb(0, 0, 0) 1px solid;
-  max-width: 20%;
+  max-width: 2em;
   margin: 5%;
 }
 
 .rounded:hover {
   transition: 300ms;
   box-shadow: none;
+}
+
+.content-image {
+  border-radius: 30px;
+  border: rgba(120, 113, 113, 0.611) 0.7em double;
+  margin-top: 4%;
+  margin-bottom: 4%;
 }
 </style>

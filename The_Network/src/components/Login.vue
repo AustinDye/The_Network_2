@@ -16,7 +16,9 @@
         id="authDropdown"
       >
         <div v-if="account.picture">
-          <span class="lighten-30">{{ account.name }}</span>
+          <span class="lighten-30">
+            <p class="fs-6">{{ account.name }}</p>
+          </span>
         </div>
       </div>
       <div

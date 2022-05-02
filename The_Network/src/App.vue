@@ -1,22 +1,17 @@
 <template>
   <header class="">
-    <div class="row">
-      <div class="col-4"></div>
-      <div class="col-md-8">
-        <Navbar />
-      </div>
-    </div>
+    <Navbar />
   </header>
   <main>
     <div class="row">
-      <div class="col-md-3 d-none d-lg-block">
+      <div class="col-md-3 d-none d-lg-block p-2">
         <SideBar />
       </div>
       <div class="col-md-6">
         <router-view />
       </div>
       <div class="col-3">
-        <div class="container ads" v-if="ads">
+        <div class="container ads mt-5 mx-5 px-5 ps-0" v-if="ads">
           <Ad v-for="a in ads" :key="a.id" :ad="a" />
         </div>
       </div>

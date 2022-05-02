@@ -1,8 +1,9 @@
 <template>
-  <nav class="navbar navbar-expand-lg mx-4 mt-1">
+  <nav class="navbar navbar-expand-lg">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
-        <img alt="logo" src="../assets/img/thenetwork.png" height="45" />
+        <i class="mdi mdi-vpn mdi-48px mx-5" />
+        <h6>THE NETWORK</h6>
       </div>
     </router-link>
     <button
@@ -30,15 +31,22 @@ export default {
 
 <style scoped>
 .navbar {
-  background-color: #fffff4;
-  border: none;
-  box-shadow: rgba(255, 235, 248, 0.872) 5px 5px;
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.625);
+  border-bottom: rgba(0, 0, 0, 0.625) 0.4em double;
+  background-color: #ac9c9c;
 }
 a:hover {
   text-decoration: none;
 }
 .nav-link {
   text-transform: uppercase;
+}
+
+.mdi {
+  color: rgba(0, 0, 0, 0.516);
+}
+h6 {
+  color: black;
 }
 .navbar-nav .router-link-exact-active {
   border-bottom: 2px solid var(--bs-success);

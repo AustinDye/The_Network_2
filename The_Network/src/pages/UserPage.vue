@@ -4,13 +4,13 @@
       <div class="col-12 py-5">
         <div class="container">
           <div v-if="!editing" class="row d-flex">
+            <div class="col-9"></div>
             <div class="col-3" v-if="profile.id == account.id">
               <i
                 class="selectable ms-2 mdi mdi-pencil"
                 @click="editing = true"
               ></i>
             </div>
-            <div class="col-9"></div>
           </div>
           <form v-else @submit="editAccount">
             <div class="mb-3">
@@ -72,8 +72,9 @@
           </form>
         </div>
         <div id="user-info">
-          <img :src="profile.picture" alt="" class="img-fluid rounded-pill" />
+          <img :src="profile.picture" alt="" class="img-fluid rounded" />
           <h2>{{ profile.name }}</h2>
+
           <p>{{ profile.bio }}</p>
         </div>
         <div v-if="userPosts">
