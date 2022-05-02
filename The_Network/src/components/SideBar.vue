@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col ps-4 d-flex justify-content-between mx-4 me-5">
+      <div class="col ps-4 d-flex justify-content-between mx-4 me-5 mt-5">
         <a :href="accountUser.github">
           <i class="mdi mdi-github fs-3 btn p-0 bg-info"></i>
         </a>
@@ -55,7 +55,7 @@ export default {
 }
 
 #account-card {
-  border: rgba(0, 0, 0, 0.625) 0.4em double;
+  border: rgba(76, 99, 76, 0.723) 0.4em double;
   box-shadow: #ac9c9c 5px 5px, #a09494 10px 10px, #9b8b8b 15px 15px,
     #8b7e7e 20px 20px, #292c27 22px 22px;
   top: 5%;
@@ -70,7 +70,7 @@ export default {
   border-radius: 20px;
 }
 .user-screen {
-  border: rgba(173, 171, 171, 0.89) 1em double;
+  border: rgba(76, 99, 76, 0.723) 0.4em double;
   border-radius: 70px;
   margin: 0.5em;
   font-size: 0.75em;
