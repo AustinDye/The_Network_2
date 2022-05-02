@@ -17,14 +17,13 @@ class PostService {
   async deletePost(id) {
     const res = await api.delete('api/posts/' + id)
     logger.log('success')
-    AppState.posts = AppState.posts.filter(p => p.id !== id)
+    console.log(AppState.posts);
+    AppState.posts = AppState.posts.filter(p => p.id != id)
+    console.log(AppState.posts);
+  
   }
 
-  async likePost(post) {
-    const res = await api.get('api/posts/' + post.id)
-    const likedPost = res.data.likes.push(AppState.account) 
-    await api.put('api/posts/' + post.id , likedPost)
-  }
+  
   
 }
 

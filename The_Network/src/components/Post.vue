@@ -4,21 +4,32 @@
       <div class="card d-flex">
         <div class="row">
           <div class="col-12">
-            <span class="d-flex">
+            <span class="d-flex" id="user-info">
               <img
                 :src="post.creator.picture"
                 v-if="post.creator.picture"
-                class="rounded-pill"
-                @click="getUserById()"
+                class="rounded"
+                @click="getProfileById()"
               />
               <p class="pt-4">{{ post.creator.name }}</p>
+              <h4>Fame: {{ post.likes.length }}</h4>
+              <div class="btn">
+                <i
+                  class="mdi fs-5"
+                  :class="
+                    isLiked
+                      ? 'mdi-arrow-up-bold btn'
+                      : 'mdi-arrow-up-bold-outline btn'
+                  "
+                  @click="likePost(post.id)"
+                ></i>
+              </div>
             </span>
             <div class="container d-block">
-              <h3 class="m-5">{{ post.body }}</h3>
+              <h3 class="">{{ post.body }}</h3>
               <img :src="post.imgUrl" v-if="post.imgUrl" class="img-fluid" />
-              <i class="mdi mdi-circle btn" @click="likePost()"></i>
             </div>
-            <div class="trash">
+            <div class="trash" v-if="post.creator.id == account.id">
               <i
                 class="mdi mdi-delete-outline mdi-24px btn"
                 @click="deletePost()"
@@ -36,14 +47,16 @@
 import { computed } from "@vue/reactivity";
 import { AppState } from "../AppState.js";
 import { postService } from "../services/PostService.js";
-import { usersService } from "../services/UsersService.js";
+import { profilesService } from "../services/ProfilesService.js";
 import Pop from "../utils/Pop.js";
 import { router } from "../router.js";
+import { likesService } from "../services/LikesService.js";
 export default {
   props: {
     post: {
       type: Object,
       required: true,
+      isLiked: false,
     },
   },
   setup(props) {
@@ -56,9 +69,9 @@ export default {
           Pop.toast(error.message, "error");
         }
       },
-      async getUserById() {
+      async getProfileById() {
         try {
-          await usersService.getUserById(props.post.creator.id);
+          await profilesService.getProfileById(props.post.creator.id);
           router.push({
             name: "User",
             params: { id: props.post.creator.id },
@@ -69,31 +82,51 @@ export default {
       },
       async likePost() {
         try {
-          await postService.likePost(props.post);
+          await likesService.likePost(props.post);
         } catch (error) {
           Pop.toast(error.message, "error");
         }
       },
 
       account: computed(() => AppState.account),
+      isLiked: computed(() => {
+        const found = props.post.likes.find((p) => p.id == AppState.account.id);
+        console.log(props.post.body, found);
+        return found !== undefined;
+      }),
     };
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.rounded-pill {
-  max-height: 10%;
-  max-width: 10%;
-  margin: 5%;
+.mdi {
+  margin: 1%;
+  border: rgb(0, 0, 0) 3px solid;
+  box-shadow: 3px 3px 1px rgb(0, 0, 0);
 }
 
-img {
-  border: black 3px solid;
+.mdi-arrow-up-bold {
+  background-color: rgb(184, 179, 134);
+}
+.mdi-arrow-up-bold:hover {
+  background-color: rgb(255, 255, 255);
 }
 
 .card {
-  border: rgb(0, 0, 0) 3px solid;
-  box-shadow: 7px 7px 1px rgb(0, 0, 0);
+  box-shadow: 2px 2px 4px #394446a4;
+  background-color: #fefbe7;
+}
+
+.rounded {
+  box-shadow: 3px 3px 1px rgb(0, 0, 0);
+  border: rgb(0, 0, 0) 1px solid;
+  max-width: 20%;
+  margin: 5%;
+}
+
+.rounded:hover {
+  transition: 300ms;
+  box-shadow: none;
 }
 </style>

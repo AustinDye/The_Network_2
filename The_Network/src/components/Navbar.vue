@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg mx-4 mt-1">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img alt="logo" src="../assets/img/thenetwork.png" height="45" />
@@ -34,7 +34,8 @@ export default {
 
 <style scoped>
 .navbar {
-  background-color: white;
+  background-color: #fefbe7;
+  box-shadow: 2px 2px 4px #394446;
 }
 a:hover {
   text-decoration: none;

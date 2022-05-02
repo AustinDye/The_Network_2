@@ -1,18 +1,17 @@
 <template>
   <div class="row">
-    <div class="col-6"></div>
-    <div class="col-6">
+    <div class="col-12">
       <p>
-        <button
-          class="btn btn-primary"
+        <i
+          class="btn mdi mdi-note-edit-outline size:24px"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#collapseExample"
           aria-expanded="false"
           aria-controls="collapseExample"
         >
-          New Post +
-        </button>
+          share
+        </i>
       </p>
       <div class="collapse" id="collapseExample">
         <div class="card card-body">

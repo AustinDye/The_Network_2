@@ -2,24 +2,26 @@ import { AppState } from "../AppState.js"
 import { logger } from "../utils/Logger.js"
 import { api } from "./AxiosService.js"
 
-class UsersService{ 
-  async getUserById(id) {
+class ProfilesService{ 
+  async getProfileById(id) {
     const res = await api.get('api/profiles/' + id)
+    AppState.profile = res.data;
+    console.log('hello from the ', res.data);
     logger.log(res.data)  
   } 
 
-  async getUserPosts(id) {
+  async getProfilePosts(id) {
     const res = await api.get('api/profiles/' + id + '/posts')
     logger.log(res.data.posts)
     AppState.userPosts = [...res.data.posts]
-    
+
   }
  
-  async editUser(edditedUser) {
-    const res = api.put('api/profiles/' + edditedUser.id)
+  async editProfile(editedProfile) {
+    const res = api.put('api/profiles/' + editedProfile.id)
     logger.log(res.data)
   }
  
 }
 
-export const usersService = new UsersService()
+export const profilesService = new ProfilesService()

@@ -1,9 +1,10 @@
 <template>
-  <div class="row justify-content-center">
-    <div class="col-12">
-      <img :src="ad.banner" class="" />
-    </div>
+  <div class="shadow bg-light">
+    <p>sponsored</p>
+    <img :src="ad.tall" class="img-fluid" />
   </div>
+
+  <br />
 </template>
 
 <script>
@@ -20,4 +21,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+img {
+  max-height: 10%;
+}
+p {
+  font-size: 0.75em;
+  padding: 0;
+  margin: 0;
+}
+</style>
