@@ -1,9 +1,9 @@
 <template>
-  <div class="row">
+  <div class="row my-5">
     <div class="col-12">
-      <p>
+      <p class="share-button">
         <i
-          class="btn mdi mdi-note-edit-outline size:24px"
+          class="btn mdi mdi-note-edit-outline fs-1 text-warning bg-dark rounded-pill"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#collapseExample"
@@ -75,5 +75,11 @@ export default {
 .btn:hover {
   box-shadow: rgba(240, 46, 170, 0.4) 2px 2px, rgba(240, 46, 170, 0.3) 4px 4px,
     rgba(240, 46, 170, 0.2) 6px 6px;
+}
+
+.mdi {
+  border: rgba(76, 99, 76, 0.723) 0.4em double;
+  box-shadow: #ac9c9c 5px 5px, #a09494 10px 10px, #9b8b8b 15px 15px,
+    #8b7e7e 20px 20px, #292c27 22px 22px;
 }
 </style>

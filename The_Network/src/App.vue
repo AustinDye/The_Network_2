@@ -4,7 +4,7 @@
   </header>
   <main>
     <div class="row">
-      <div class="col-md-3 d-none d-lg-block p-2">
+      <div class="col-md-3 d-none d-lg-block p-2 pt-4 my-4">
         <SideBar />
       </div>
       <div class="col-md-6">

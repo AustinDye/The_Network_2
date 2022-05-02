@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
-      <div class="d-flex flex-column align-items-center">
-        <i class="mdi mdi-vpn mdi-48px mx-5" />
-        <h6>THE NETWORK</h6>
+      <div class="d-flex flex-column align-items-center mx-5">
+        <i class="mdi mdi-vpn mdi-48px mx-5 text-success" />
+        <h5>THE NETWORK</h5>
       </div>
     </router-link>
     <button
@@ -45,7 +45,7 @@ a:hover {
 .mdi {
   color: rgba(0, 0, 0, 0.516);
 }
-h6 {
+h5 {
   color: black;
 }
 .navbar-nav .router-link-exact-active {
