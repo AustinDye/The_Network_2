@@ -105,7 +105,7 @@ export default {
 <style lang="scss" scoped>
 .mdi {
   box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.625);
-  border: rgba(76, 99, 76, 0.723) 0.4em double;
+  border: rgba(76, 99, 76, 0.723) 0.4em inset;
   border-radius: 30px;
   color: rgba(76, 99, 76, 0.723);
 }
@@ -122,7 +122,7 @@ img {
 
 .card {
   background-color: #ac9c9c;
-  border: rgba(56, 72, 56, 0.723) 0.4em double;
+  border: rgba(56, 72, 56, 0.723) 0.4em inset;
   box-shadow: #ac9c9c 5px 5px, #a09494 10px 10px, #9b8b8b 15px 15px,
     #8b7e7e 20px 20px, #756a6a 25px 25px, #655e5e 30px 30px, #090808 37px 37px,
     rgb(161, 161, 36) 41px 41px, rgb(99, 99, 18) 54px 54px,
@@ -142,7 +142,7 @@ img {
 
 .content-image {
   border-radius: 30px;
-  border: rgba(76, 99, 76, 0.723) 0.4em double;
+  border: rgba(76, 99, 76, 0.723) 0.4em inset;
   margin-top: 4%;
   margin-bottom: 4%;
 }

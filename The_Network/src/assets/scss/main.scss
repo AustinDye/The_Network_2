@@ -24,6 +24,10 @@ main {
 a {
   text-decoration: none;
 }
+img {
+  outline: $success 0.6em double;
+  border-radius: 30px;
+}
 
 input,
 textarea,

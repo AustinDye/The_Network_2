@@ -55,7 +55,7 @@ export default {
 }
 
 #account-card {
-  border: rgba(76, 99, 76, 0.723) 0.4em double;
+  border: rgba(76, 99, 76, 0.723) 0.4em outset;
   box-shadow: #ac9c9c 5px 5px, #a09494 10px 10px, #9b8b8b 15px 15px,
     #8b7e7e 20px 20px, #292c27 22px 22px;
   top: 5%;
@@ -66,11 +66,11 @@ export default {
 }
 .mdi {
   box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.625);
-  border: rgba(0, 0, 0, 0.625) 0.4em double;
+  border: rgba(0, 0, 0, 0.625) 0.3em outset;
   border-radius: 20px;
 }
 .user-screen {
-  border: rgba(76, 99, 76, 0.723) 0.4em double;
+  border: rgba(76, 99, 76, 0.723) 0.4em inset;
   border-radius: 70px;
   margin: 0.5em;
   font-size: 0.75em;
