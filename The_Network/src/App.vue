@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky-top">
+  <header class="">
     <div class="row">
       <div class="col-4"></div>
       <div class="col-md-8">
@@ -9,14 +9,16 @@
   </header>
   <main>
     <div class="row">
-      <div class="col-md-4 d-none d-lg-block">
+      <div class="col-md-3 d-none d-lg-block">
         <SideBar />
+      </div>
+      <div class="col-md-6">
+        <router-view />
+      </div>
+      <div class="col-3">
         <div class="container ads" v-if="ads">
           <Ad v-for="a in ads" :key="a.id" :ad="a" />
         </div>
-      </div>
-      <div class="col-md-8">
-        <router-view />
       </div>
     </div>
   </main>

@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow bg-light">
+  <div class="">
     <p>sponsored</p>
     <img :src="ad.tall" class="img-fluid" />
   </div>

@@ -4,10 +4,7 @@
       <div class="col-12 py-5">
         <div class="container">
           <div v-if="!editing" class="row d-flex">
-            <div class="col-3">
-              <div class="card">
-                <div class="container"></div>
-              </div>
+            <div class="col-3" v-if="profile.id == account.id">
               <i
                 class="selectable ms-2 mdi mdi-pencil"
                 @click="editing = true"

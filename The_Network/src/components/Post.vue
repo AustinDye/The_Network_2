@@ -4,30 +4,31 @@
       <div class="card d-flex">
         <div class="row">
           <div class="col-12">
-            <span class="d-flex" id="user-info">
-              <img
-                :src="post.creator.picture"
-                v-if="post.creator.picture"
-                class="rounded"
-                @click="getProfileById()"
-              />
-              <p class="pt-4">{{ post.creator.name }}</p>
+            <span class="d-flex justify-content-between p-2" id="user-info">
+              <div class="d-flex">
+                <img
+                  :src="post.creator.picture"
+                  v-if="post.creator.picture"
+                  class="rounded"
+                  @click="getProfileById()"
+                />
+                <p class="">{{ post.creator.name }}</p>
+              </div>
+              <p>{{ post.createdAt.substring(0, 10) }}</p>
+            </span>
+            <h5 class="p-3">{{ post.body }}</h5>
+            <div class="container text-center bg-dark">
+              <img :src="post.imgUrl" v-if="post.imgUrl" class="img-fluid" />
+            </div>
+            <div class="flex-row-reverse">
               <h4>Fame: {{ post.likes.length }}</h4>
               <div class="btn">
                 <i
-                  class="mdi fs-5"
-                  :class="
-                    isLiked
-                      ? 'mdi-arrow-up-bold btn'
-                      : 'mdi-arrow-up-bold-outline btn'
-                  "
+                  class="mdi fs-5 btn"
+                  :class="isLiked ? 'mdi-star' : 'mdi-star-outline'"
                   @click="likePost(post.id)"
                 ></i>
               </div>
-            </span>
-            <div class="container d-block">
-              <h3 class="">{{ post.body }}</h3>
-              <img :src="post.imgUrl" v-if="post.imgUrl" class="img-fluid" />
             </div>
             <div class="trash" v-if="post.creator.id == account.id">
               <i
@@ -102,20 +103,23 @@ export default {
 <style lang="scss" scoped>
 .mdi {
   margin: 1%;
-  border: rgb(0, 0, 0) 3px solid;
+  border: rgb(0, 0, 0) 1px solid;
   box-shadow: 3px 3px 1px rgb(0, 0, 0);
 }
 
-.mdi-arrow-up-bold {
+.mdi-star {
   background-color: rgb(184, 179, 134);
 }
-.mdi-arrow-up-bold:hover {
+.mdi-star:hover {
   background-color: rgb(255, 255, 255);
 }
 
 .card {
   box-shadow: 2px 2px 4px #394446a4;
-  background-color: #fefbe7;
+  background-color: #fffff4;
+  border: none;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
+    rgba(240, 46, 170, 0.2) 15px 15px;
 }
 
 .rounded {

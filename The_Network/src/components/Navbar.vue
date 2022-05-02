@@ -16,11 +16,7 @@
     >
       <span class="navbar-toggler-icon" />
     </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav me-auto"></ul>
-      <!-- LOGIN COMPONENT HERE -->
-      <Login />
-    </div>
+    <div class="collapse navbar-collapse" id="navbarText"></div>
   </nav>
 </template>
 
@@ -34,8 +30,9 @@ export default {
 
 <style scoped>
 .navbar {
-  background-color: #fefbe7;
-  box-shadow: 2px 2px 4px #394446;
+  background-color: #fffff4;
+  border: none;
+  box-shadow: rgba(255, 235, 248, 0.872) 5px 5px;
 }
 a:hover {
   text-decoration: none;

@@ -1,8 +1,12 @@
 <template>
-  <div class="component mx-4 mt-1" v-if="accountUser.name" id="account-card">
+  <div
+    class="component mx-4 mt-1 sticky-top"
+    v-if="accountUser.name"
+    id="account-card"
+  >
     <div class="d-flex flex-direction-row">
       <img :src="accountUser.picture" alt="" class="img-fluid rounded ps-5" />
-      <h5>{{ accountUser.name }}</h5>
+      <Login />
     </div>
     <p>{{ accountUser.bio }}</p>
     <p>{{ accountUser.email }}</p>
@@ -33,8 +37,10 @@ export default {
 }
 
 #account-card {
-  box-shadow: 2px 2px 4px #394446a4;
-  background-color: #fefbe7;
+  border: none;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
+    rgba(240, 46, 170, 0.2) 15px 15px;
+  background-color: #fffff4;
   min-height: 5%;
 }
 </style>

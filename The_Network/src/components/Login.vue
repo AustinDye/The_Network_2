@@ -16,13 +16,7 @@
         id="authDropdown"
       >
         <div v-if="account.picture">
-          <img
-            :src="account.picture"
-            alt="account photo"
-            height="40"
-            class="rounded"
-          />
-          <span class="mx-3 lighten-30">{{ account.name }}</span>
+          <span class="lighten-30">{{ account.name }}</span>
         </div>
       </div>
       <div

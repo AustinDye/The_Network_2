@@ -14,22 +14,12 @@
         </i>
       </p>
       <div class="collapse" id="collapseExample">
-        <div class="card card-body">
+        <div class="card card-body m-5">
           <form @submit.prevent="handleSubmit()" class="mx-5">
             <div class="form-group">
               <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="title"
-                  placeholder="Post Title..."
-                  v-model="editable.title"
-                />
-              </div>
-              <div class="mb-3">
                 <label for="body" class="form-label">Post body</label>
-                <input
+                <textarea
                   type="text"
                   class="form-control"
                   id="body"
@@ -49,12 +39,8 @@
               </div>
             </div>
 
-            <button
-              type="submit"
-              class="btn btn-success"
-              data-bs-dismiss="modal"
-            >
-              Create Post
+            <button type="submit" class="btn" data-bs-dismiss="">
+              Create Post ✏
             </button>
           </form>
         </div>
@@ -85,4 +71,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.btn:hover {
+  box-shadow: rgba(240, 46, 170, 0.4) 2px 2px, rgba(240, 46, 170, 0.3) 4px 4px,
+    rgba(240, 46, 170, 0.2) 6px 6px;
+}
+</style>
